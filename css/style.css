@@ -13,9 +13,10 @@
     --bg-color-1: hsl(var(--hue-1), 100%, 97%);
     --bg-color-2: #fff;
     --bg-color-3: hsl(var(--hue-1), 100%, 98%);
-    --bg-color-transparent: rgba(255, 255, 255, 0.6);
+    --bg-color-transparent: rgba(255, 255, 255, 0.9);
     --heading-color: hsl(var(--hue-1), 61%, 24%);
     --text-color: hsl(var(--hue-1), 17%, 63%);
+    --section-padding: 7rem;
 }
 
 
@@ -27,9 +28,17 @@
     box-sizing: border-box;
 }
 
+#ex {
+    background-image:
+url("file:///G:/dasun/Portfolio/images/2.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 body{
     overflow-x: hidden;
-    background-color: var(--bg-color);
+    /*background-color: var(--bg-color);*/
 }
 
 ::selection{
@@ -91,6 +100,68 @@ ul{
     color: var(--text-color);
     font-size: 0.9rem;
     margin: 2rem 0;
+    line-height: 2.3;
+}
+
+.cta{
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.cta .btn{
+    margin-right: 1.5rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: .9rem 1.75rem;
+    border-radius: 17px;
+    background-color: var(--main-color-1);
+    color: #fff;
+    font-size: .85rem;
+    letter-spacing: .4px;
+    text-transform: capitalize;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background-color: var(--main-color-dark-1);
+}
+.btnh:hover{
+    box-shadow: 0 1px 10px 0.1px rgba(0, 0, 0, 0.5);
+}
+
+.btn.secondary-btn{
+    position: relative;
+    background-color: transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0px;
+    border-bottom: 2.5px solid var(--main-color-2);
+    border-radius: 0px;
+    padding: 0.15rem 0;
+}
+
+.btn.secondary-btn::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2.5px;
+    bottom: -2.5px;
+    left: 0;
+    background-color: var(--main-color-1);
+    transition: 0.3s ease-in-out;
+}
+
+.btn.secondary-btn:hover::before{
+    width: 100%;
+}
+
+.section{
+    position: relative;
+    padding: var(--section-padding) 0;
 }
 
 /*----------------------- Navbar Styles -----------------------*/
@@ -200,61 +271,7 @@ header.scrolled .logo{
     margin: 0.8rem 0;
 }
 
-.cta{
-    margin-top: 3.5rem;
-    display: flex;
-    align-items: center;
-}
 
-.cta .btn{
-    margin-right: 1.5rem;
-}
-
-.btn{
-    display: inline-block;
-    padding: .9rem 1.75rem;
-    border-radius: 17px;
-    background-color: var(--main-color-1);
-    color: #fff;
-    font-size: .85rem;
-    letter-spacing: .4px;
-    text-transform: capitalize;
-    transition: 0.5s;
-}
-
-.btn:hover{
-    background-color: var(--main-color-dark-1);
-}
-.btnh:hover{
-    box-shadow: 0 1px 10px 0.1px rgba(0, 0, 0, 0.5);
-}
-
-.btn.secondary-btn{
-    position: relative;
-    background-color: transparent;
-    color: black;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0px;
-    border-bottom: 2.5px solid var(--main-color-2);
-    border-radius: 0px;
-    padding: 0.15rem 0;
-}
-
-.btn.secondary-btn::before{
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2.5px;
-    bottom: -2.5px;
-    left: 0;
-    background-color: var(--main-color-1);
-    transition: 0.3s ease-in-out;
-}
-
-.btn.secondary-btn:hover::before{
-    width: 100%;
-}
 .showcase-image{
     padding-top: 50px;
     position: relative;
@@ -268,4 +285,108 @@ header.scrolled .logo{
     left: 50%;
     transform: translateX(-25%);
     border-radius: 0 80px 0 80px;
+}
+
+/*----------------------- About Section Styling -----------------------*/
+
+.about{
+    background-color: #fff;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+
+.about .container{
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+}
+
+.about .text{
+    margin: 3rem 0 4rem;
+}
+
+/*----------------------- Skills Section Styling -----------------------*/
+
+.skills{
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.skills-box{
+    background-color:white;
+    padding: 5rem 6rem;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+
+.box-desc{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.skills-wrap{
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sk-progress{
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.sk-progress svg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sk-progress svg circle{
+    fill: var(--bg-color-1);
+    stroke-width: 10px;
+    stroke: var(--main-color-1);
+    stroke-linecap: round;
+    stroke-dasharray: 427;
+    stroke-dashoffset: 427;
+}
+
+@keyframes progress{
+    to{
+        stroke-dashoffset: var(--target);
+    }
+}
+
+.counter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: var(--heading-color);
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.counter span{
+    font-size: 2.45rem;
+}
+
+.sk-title{
+    color: var(--heading-color);
+    margin-top: 0.75rem;
+    font-weight: 400;
+    font-size: 1rem;
 }
