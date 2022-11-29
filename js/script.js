@@ -101,3 +101,18 @@ function mlCounter(){
         }, 1600);
     });
 }
+
+/*-------------------------------- Dark Mode -------------------------------*/
+
+function myFunction() {
+    var element1 = document.body;
+    element1.classList.toggle("dark");
+
+    var element2 = document.querySelector('.uil-moon');
+    element2.classList.toggle("uil-sun");
+
+    var element3 = document.querySelector('.nav-link');
+    element3.classList.toggle(".nav-link-dark");
+    
+    
+ }
