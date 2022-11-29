@@ -12,10 +12,12 @@
     --main-color-dark-2: hsl(var(--hue-2), 82%, 55%);
     --bg-color-1: hsl(var(--hue-1), 100%, 97%);
     --bg-color-2: #fff;
+    --bg-color-4: rgb(4, 0, 30);
     --bg-color-3: hsl(var(--hue-1), 100%, 98%);
     --bg-color-transparent: rgba(255, 255, 255, 0.9);
     --heading-color: hsl(var(--hue-1), 61%, 24%);
     --text-color: hsl(var(--hue-1), 17%, 63%);
+    --text-color-1: white;
     --section-padding: 7rem;
 }
 
@@ -28,18 +30,24 @@
     box-sizing: border-box;
 }
 
-.bg {
-    background-image:url("https://raw.githubusercontent.com/DasunThathsara/Portfolio/646b3976dd8621a9229665d3d7e2138f32a09940/images/2.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-
-}
-
 body{
     overflow-x: hidden;
-    /*background-color: var(--bg-color);*/
+    background: url(https://raw.githubusercontent.com/DasunThathsara/Portfolio/6aba671b0fad281a0e6f138788a15232bb67444c/images/11.svg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    transition: 0.5s;
+}
+
+.dark{
+    overflow-x: hidden;
+    background: url(https://raw.githubusercontent.com/DasunThathsara/Portfolio/6aba671b0fad281a0e6f138788a15232bb67444c/images/10.svg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    transition: 0.5s;
 }
 
 ::selection{
@@ -146,6 +154,34 @@ ul{
     min-width: revert;
 }
 
+.btn.project-btn{
+    position: relative;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.53);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0px;
+    border-bottom: 2.5px solid transparent;
+    border-radius: 0px;
+    padding: 0.15rem 0;
+    min-width: revert;
+}
+
+.btn.project-btn:hover{
+    color: rgb(28, 0, 120);
+}
+
+.btn.project-btn::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2.5px;
+    bottom: -2.5px;
+    left: 0;
+    background-color: rgba(0, 0, 49, 0.093);
+    transition: 0.3s ease-in-out;
+}
+
 .btn.secondary-btn::before{
     content: "";
     position: absolute;
@@ -155,6 +191,10 @@ ul{
     left: 0;
     background-color: var(--main-color-1);
     transition: 0.3s ease-in-out;
+}
+
+.btn.project-btn:hover::before{
+    width: 100%;
 }
 
 .btn.secondary-btn:hover::before{
@@ -178,8 +218,10 @@ header{
 }
 
 header.scrolled{
-    background-color: var(--bg-color-transparent);
+    /*background-color: var(--bg-color-transparent);*/
     box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
 }
 
 nav.container{
@@ -219,9 +261,14 @@ header.scrolled .logo{
     font-weight: 500;
     opacity: 0.9;
     transition: 0.3s;
-    columns: var(--text-color);
+    color: var(--text-color);
 }
+
 .nav-link:hover{
+    color: var(--heading-color);
+}
+
+.nav-link:visited{
     color: var(--heading-color);
 }
 
@@ -237,13 +284,51 @@ header.scrolled .logo{
     font-size: 1.1rem;
     cursor: pointer;
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.05);
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .toggle-btn:hover{
     filter: brightness(97%);
 }
 
+.uil-sun{
+    transition: 0.5s;
+    color: var(--bg-color-2);
+    background-color: var(--bg-color-4);
+    box-shadow: 0 0 10px 0px rgba(138, 138, 138, 0.193);
+}
+
+.uil-sun:hover{
+    background-color: rgb(21, 21, 21);
+}
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffffe7;
+    min-width: 160px;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(250, 250, 250);
+    border-radius: 15px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 /*----------------------- Showcase Area Styling -----------------------*/
 
@@ -451,7 +536,14 @@ header.scrolled .logo{
     align-items: flex-start;
     justify-content: space-between;
     min-height: 200px;
+    transition: 0.5s;
 }
+
+.srv-card:hover{
+    transition: 0.5s;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.2);
+}
+
 
 .srv-card h3{
     color: var(--heading-color);
@@ -483,4 +575,31 @@ header.scrolled .logo{
     border: 15px solid gray;
     z-index: -1;
     opacity: 0.07;
+}
+
+/*----------------------- Portfolio Section Styling -----------------------*/
+
+.portfolio-header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.portfolio-title{
+    padding-bottom: 1rem;
+}
+
+filter-btn{
+    display: inline-block;
+    color: var(--heading-color);
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .4px;
+    margin-left: 1.3rem;
+    font-family: inherit;
+    text-transform: uppercase;
 }
