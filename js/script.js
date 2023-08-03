@@ -31,7 +31,7 @@ function updateCount(num, maxNum){
 /*----------------------- Sticky Navbar -----------------------*/
 
 function stickyNavbar(){
-    header.classList.toggle("scrolled", window.pageYOffset > 0);
+    header.classList.toggle("scrolled", window.scrollY > 0);
 }
 
 stickyNavbar();
@@ -46,6 +46,7 @@ let sr = ScrollReveal({
 
 sr.reveal(".anmd", { delay : 600 });
 sr.reveal(".anmt", { origin : "top", delay : 700 });
+sr.reveal(".anmb", { origin : "bottom", delay : 700 });
 sr.reveal(".anms", { origin : "top", delay : 200 });
 sr.reveal(".anml", { origin : "left", delay : 700 });
 sr.reveal(".anmr", { origin : "right", delay : 700 });
